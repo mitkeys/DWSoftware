@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <p>The following form requires you to input an existing candidate. It will not work out of the box.</p>
+    <p>Although you can fix all the issues of this app by removing code. We recommend that you don&lsquo;t.</p>
+    {{ form(form) }}
+    {% if result %}
+        <div class="results">
+            <p>The result is: <span id="theResult">{{ result }}</span></p>
+            <p>Congratulations! You fixed the bugs and used the simple app correctly.</p>
+            <p>Please fork the repository into a public repo of your own, commit and push the changes required to make the app work to said repository, and send its url to your recruiting contact.</p>
+            <p>The mail should contain the result generated in <pre>span#theResult</pre>, and the answer to the following items, in english: </p>
+            <ol>
+                <li>Describe how an http request is processed by the stack of your choice</li>
+                <li>What is the difference between unit tests and integrations tests?</li>
+                <li>Mention a disadvantage of database normalization</li>
+                <li>In your opinion, why does software exist?</li>
+            </ol>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    body { background: #F5F5F5; font: 18px/1.5 sans-serif; }
+    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+    h1 { font-size: 36px; }
+    h2 { font-size: 21px; margin-bottom: 1em; }
+    p { margin: 0 0 1em 0; }
+    a { color: #0000F0; }
+    a:hover { text-decoration: none; }
+    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+    .results { border: 1px solid green; }
+</style>
+{% endblock %}
